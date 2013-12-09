@@ -21,9 +21,14 @@ body{
 	width: 224px;
 	height: 100%;
 	-webkit-transform:translate3d(-224px,0,0);
+	-moz-transform:translate3d(-224px,0,0);
+	-o-transform:translate3d(-224px,0,0);
+	transform:translate3d(-224px,0,0);
 	position:absolute;
 	background: $dark-gray;
 	-webkit-transition:.5s;
+	-moz-transition:.5s;
+	transition:.5s;
 	.menu-header{
 
 		padding:20px;
@@ -98,7 +103,12 @@ body{
 		
 		position:absolute;
 		-webkit-transform:translate3d(0,0,0);
+		-moz-transform:translate3d(0,0,0);
+		-o-transform:translate3d(0,0,0);
+		transform:translate3d(0,0,0);
 		-webkit-box-shadow:2px 0px 5px #333;
+		-moz-box-shadow:2px 0px 5px #333;
+		-ms-box-shadow:2px 0px 5px #333;
 	ul{
 		display: block;
 		width: 100%;
@@ -113,11 +123,21 @@ body{
 #content{
 	width: 100%;
 	-webkit-transform:translate3d(0,0,0);
+	-moz-transform:translate3d(0,0,0);
+	-o-transform:translate3d(0,0,0);
+	transform:translate3d(0,0,0);
 	-webkit-transition:.5s;
+	-moz-transition:.5s;
+	transition:.5s;
+	
 }
 
 #content.moved{
 		-webkit-transform:translate3d(224px,0,0);
+		-moz-transform:translate3d(224px,0,0);
+		-o-transform:translate3d(224px,0,0);
+		transform:translate3d(224px,0,0);
+
 }
 
 

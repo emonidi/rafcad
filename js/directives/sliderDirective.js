@@ -1,6 +1,29 @@
 var app = angular.module('app',[function(){}]);
 
-
+(function() {
+    var lastTime = 0;
+    var vendors = ['ms', 'moz', 'webkit', 'o'];
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] 
+                                   || window[vendors[x]+'CancelRequestAnimationFrame'];
+    }
+ 
+    if (!window.requestAnimationFrame)
+        window.requestAnimationFrame = function(callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
+              timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+ 
+    if (!window.cancelAnimationFrame)
+        window.cancelAnimationFrame = function(id) {
+            clearTimeout(id);
+        };
+}());
 app.directive('ngSlider', [function () {
 	return {
 		restrict: 'A',
@@ -75,18 +98,18 @@ app.directive('ngSlider', [function () {
 				console.log(margin);
 				//console.log(position+" =====   "+margin);
 			//	return false;
-			var update = 	function(transformsType){
+			var update  = 	function(transformsType){
 					now = new Date().getTime();
-					delta  = now - then;
-					margin = Math.ceil(parseInt(margin-step));
+					delta  = (now - then)/1000;
+					margin = margin+(step*-1)// Math.ceil(margin+(delta*position*-1));
 					if(margin < position*-1){
 						margin = position*-1;
 						window.cancelAnimationFrame(update);
 					}else{
-						margin = margin;
+						console.log(margin)
 						window.requestAnimationFrame(update);
 
-				}
+					}
 
 				then = now;
 				scope.updateMargin($ul,margin)
@@ -94,20 +117,15 @@ app.directive('ngSlider', [function () {
 
 				}
 
-				ul.css({
-				});
 				update();
-				setTimeout(function(){
-					ul.css({
-					});
+
 				
-				},550)
 
 			}
 
 			scope.updateMargin = function($ul,margin){
-				$ul[0].style.marginLeft = margin+"px";
-
+				//$ul[0].style.marginLeft = margin+"px";
+				transforms ? $($ul).css("-webkit-transform","translate3d("+margin+"px,0,0)") : $ul[0].style.marginLeft = margin+"px";
 			}
 
 		}	

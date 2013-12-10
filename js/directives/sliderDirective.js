@@ -5,111 +5,99 @@ app.directive('ngSlider', [function () {
 	return {
 		restrict: 'A',
 		templateUrl:"./js/directives/sliderTemplate.html",
-		link: function (scope, elem, attr) {
+		link: function (scope, elem, attr) {		
+			    $('head').append('<script type="text/javascript" src="./js/directives/modernizr.js"></script>');
+				this.position;
+				scope.activeLi = 0;
+				scope.direction;
+				scope.positions = new Array();
+				scope.is3d = Modernizr.csstransforms3d;
+				scope.parent = $(elem).find($("#carousel"));
+				scope.ul = $(elem).find('ul');
 
-			$("head").append("<script type='text/javascript' src='./js/directives/modernizr.js'></script>");
-			console.log(Modernizr);
-			var transforms  = Modernizr.csstransforms3d;
-
-			scope.activeLi = 0;
-
-			var childrenCount = $(elem).find('li').length;
-
-			var ul = $(elem).find('ul');
-			var position = 0;
-			scope.segmentWidth = function(){
-				return $($(elem).find("li")[0]).width();
-			}
-
-			
-			
-
-			$(window).load(function(){
-				var segmentWidth = scope.segmentWidth();
-				$(elem).find('ul').css({
-				"height":"420px",
-
-				"width":scope.segmentWidth()*childrenCount+"px"
-			});
-
-				var li = $(ul).find("li");
-				$(li).each(function(i,e){
-					console.log(e);
-					$(e).width(segmentWidth-1);
-					//$(e).find("img").width(window.width);
-				});
-			})
-
-							var margin =  0;
-
-			scope.forward = function(){
-
-				if(scope.activeLi === childrenCount){
-					scope.activeLi = 0;
-
-				}else{
-					scope.activeLi = scope.activeLi+1;
+				this.parentWidth = function(){
+					var parentWidth = $(scope.parent).width();
+					return parentWidth;
 				}
-				scope.animate(scope.activeLi,1);
-			}
+				
 
-			scope.back = function(){
-				if(scope.activeLi === 0){
-					return false;
-				}else{
-					scope.activeLi= scope.activeLi-1;
+				this.getPositions = function(){
+					var elementsNumber = $(elem).find('li').length;
+					var parentWidth = this.parentWidth();
+					for(var i = 0; i < elementsNumber+1; i++){
+						scope.positions[i] = parentWidth*i;
+						console.log(scope.positions);
+					}
 				}
-				scope.animate(scope.activeLi,-1);
-			}
 
-			scope.animate = function (activeLi,d){
+				this.resizeUl = function(){
+						scope.ul.width(this.parentWidth()*scope.parent.find("li").length);
+				}
 
-				var $ul = $(ul);
-				var segmentWidth = scope.segmentWidth();
-				position = activeLi*segmentWidth;
-				var step= segmentWidth/30;
-				//return false;
-				var now = new Date().getTime();
-				var delta; 
-				var then = new Date().getTime();
-				console.log(margin);
-				//console.log(position+" =====   "+margin);
-			//	return false;
-			var update = 	function(transformsType){
-					now = new Date().getTime();
-					delta  = now - then;
-					margin = Math.ceil(parseInt(margin-step));
-					if(margin < position*-1){
-						margin = position*-1;
-						window.cancelAnimationFrame(update);
+				this.resizeUl();
+
+				this.getPositions();
+
+
+				this.resizeLi = function(){
+					var li = $(elem).find('li');
+					console.log(parent);
+					$(li).each(function(i,e){
+						console.log($(e).width(parentWidth));
+					})
+				}
+
+				scope.forward = function(){
+					scope.activeLi = scope.activeLi-1;
+
+					scope.animate(scope.activeLi);
+				}
+
+				
+
+				scope.back = function(){
+					console.log(scope.aLi)
+					scope.activeLi = scope.activeLi + 1;
+					scope.animate(scope.activeLi);
+				}
+
+				scope.animate= function(){
+				    var aLi;
+				    var position;
+				    if(scope.activeLi > 0){
+				    	aLi = scope.activeLi;
+				    }else{
+				    	aLi = scope.activeLi*-1;
+				    }
+				    console.log(aLi);
+					position = scope.positions[aLi];
+					console.log(position)
+
+					
+					if(scope.is3d){
+						scope.animate3d(position);
 					}else{
-						margin = margin;
-						window.requestAnimationFrame(update);
-
+						scope.animateLegacy(position);
+					}
 				}
 
-				then = now;
-				scope.updateMargin($ul,margin)
-				
-
-				}
-
-				ul.css({
-				});
-				update();
-				setTimeout(function(){
-					ul.css({
+				scope.animate3d = function(position){
+					if(scope.activeLi > 0){
+						var a = 1;
+					}else{
+						a= -1;
+					}
+					console.log(position*a);
+					scope.ul.css({
+						"-webkit-transition":".5s",
+						"-webkit-transform":"translate3d("+position*a+"px,0,0)"
 					});
-				
-				},550)
+					
+				}
 
-			}
 
-			scope.updateMargin = function($ul,margin){
-				$ul[0].style.marginLeft = margin+"px";
 
-			}
-
-		}	
+				this.resizeLi();		
+		}		
 	};
 }])

@@ -1,0 +1,417 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab&subset=latin,cyrillic-ext);
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, ../sass/slider.scss */
+#carousel {
+  width: 100%;
+  height: 420px;
+  background: #fff;
+  overflow: hidden;
+  display: block;
+  position: absolute;
+  margin: 0 auto;
+}
+/* line 10, ../sass/slider.scss */
+#carousel .left {
+  width: 60px;
+  height: 420px;
+  position: absolute;
+  float: left;
+}
+/* line 16, ../sass/slider.scss */
+#carousel .right {
+  position: absolute;
+  float: left;
+  height: 420px;
+  width: 60px;
+  right: 0px;
+}
+/* line 25, ../sass/slider.scss */
+#carousel .arrow a {
+  margin-top: 160px;
+  width: 60px;
+  height: 80px;
+  opacity: 0.75;
+  font-family: "Roboto";
+  font-size: 60px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  z-index: 100;
+  position: absolute;
+  background: #fff;
+}
+/* line 40, ../sass/slider.scss */
+#carousel .holder {
+  width: 100%;
+  max-height: 420px;
+  overflow: hidden;
+  float: left;
+}
+/* line 45, ../sass/slider.scss */
+#carousel ul {
+  display: inline-table;
+}
+/* line 48, ../sass/slider.scss */
+#carousel ul li {
+  float: left;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+/* line 53, ../sass/slider.scss */
+#carousel ul li img {
+  position: relative;
+  max-height: 420px;
+  max-width: 100%;
+}
+
+/* line 13, ../sass/screen.scss */
+body {
+  background: #48607b;
+  overflow: hidden;
+}
+
+/* line 18, ../sass/screen.scss */
+#menu {
+  -webkit-box-shadow: 0px 0px 0px #dde2e4;
+  width: 224px;
+  height: 100%;
+  -webkit-transform: translate3d(-224px, 0, 0);
+  -moz-transform: translate3d(-224px, 0, 0);
+  -o-transform: translate3d(-224px, 0, 0);
+  transform: translate3d(-224px, 0, 0);
+  position: absolute;
+  background: #c5cdd1;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  transition: .5s;
+}
+/* line 32, ../sass/screen.scss */
+#menu .menu-header {
+  padding: 20px;
+  background: #56ccc8;
+  height: 20px;
+  text-align: center;
+}
+/* line 38, ../sass/screen.scss */
+#menu .menu-header a {
+  font-family: "Roboto";
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+/* line 46, ../sass/screen.scss */
+#menu ul {
+  background-color: white;
+  width: 100%;
+}
+/* line 50, ../sass/screen.scss */
+#menu ul li {
+  width: 100%;
+  height: 60px;
+  border-bottom: solid 1px #dde2e4;
+  display: inline-block;
+}
+/* line 55, ../sass/screen.scss */
+#menu ul li a {
+  padding-left: 60px;
+  line-height: 55px;
+  display: block;
+  background-position: 20px center;
+  background-repeat: no-repeat;
+  font-size: 18px;
+  text-decoration: none;
+  color: #475055;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+/* line 67, ../sass/screen.scss */
+#menu ul li a.home {
+  background-image: url("../../images/lm_home_icon.png");
+}
+/* line 71, ../sass/screen.scss */
+#menu ul li a.store {
+  background-image: url("../../images/lm_store_icon.png");
+  background-position: 18px center;
+}
+/* line 76, ../sass/screen.scss */
+#menu ul li a.blog {
+  background-image: url("../../images/lm_shop_icon.png");
+  background-position: 22px center;
+}
+/* line 81, ../sass/screen.scss */
+#menu ul li a.community {
+  background-image: url("../../images/lm_communiti_icon.png");
+}
+/* line 85, ../sass/screen.scss */
+#menu ul li a.contests {
+  background-image: url("../../images/lm_cup_icon.png");
+}
+/* line 91, ../sass/screen.scss */
+#menu ul li a.about {
+  background-image: url("../../images/lm_info_icon.png");
+}
+/* line 95, ../sass/screen.scss */
+#menu ul li a.contact {
+  background-image: url("../../images/lm_contact_icon.png");
+}
+
+/* line 102, ../sass/screen.scss */
+#menu.opened {
+  position: absolute;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-box-shadow: 2px 0px 5px #333;
+  -moz-box-shadow: 2px 0px 5px #333;
+  -ms-box-shadow: 2px 0px 5px #333;
+}
+/* line 112, ../sass/screen.scss */
+#menu.opened ul {
+  display: block;
+  width: 100%;
+}
+/* line 115, ../sass/screen.scss */
+#menu.opened ul li {
+  width: 100%;
+}
+
+/* line 123, ../sass/screen.scss */
+#content {
+  width: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  transition: .5s;
+}
+
+/* line 135, ../sass/screen.scss */
+#content.moved {
+  -webkit-transform: translate3d(224px, 0, 0);
+  -moz-transform: translate3d(224px, 0, 0);
+  -o-transform: translate3d(224px, 0, 0);
+  transform: translate3d(224px, 0, 0);
+}
+
+/* line 144, ../sass/screen.scss */
+header {
+  width: 100%;
+  height: 60px;
+  background: #ffffff;
+}
+/* line 149, ../sass/screen.scss */
+header ul.left {
+  display: inline-table;
+  float: left;
+}
+/* line 152, ../sass/screen.scss */
+header ul.left li {
+  float: left;
+  height: 60px;
+  min-width: 60px;
+}
+/* line 158, ../sass/screen.scss */
+header ul.left li a.menu-button {
+  width: 60px;
+  background: #56ccc8;
+  height: 60px;
+  position: absolute;
+  background-image: url("../../images/menu-icon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* line 169, ../sass/screen.scss */
+header ul.left li.nav ul {
+  height: 60px;
+  display: inline;
+}
+/* line 173, ../sass/screen.scss */
+header ul.left li.nav ul li {
+  margin-left: 30px;
+  line-height: 60px;
+}
+@media screen and (min-width: 640px) {
+  /* line 173, ../sass/screen.scss */
+  header ul.left li.nav ul li {
+    margin-left: 20px;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 640px) {
+  /* line 173, ../sass/screen.scss */
+  header ul.left li.nav ul li {
+    margin-left: 4px;
+  }
+}
+/* line 182, ../sass/screen.scss */
+header ul.left li.nav ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #475055;
+}
+/* line 189, ../sass/screen.scss */
+header ul.left li.nav ul li a:hover {
+  color: #56ccc8;
+}
+/* line 197, ../sass/screen.scss */
+header ul.right {
+  float: right;
+  display: inline;
+}
+/* line 200, ../sass/screen.scss */
+header ul.right li {
+  display: inline;
+  float: left;
+  width: 60px;
+  height: 60px;
+}
+/* line 205, ../sass/screen.scss */
+header ul.right li a.search {
+  width: 59px;
+  height: 60px;
+  position: absolute;
+  background: url(../../images/search_icon.png) no-repeat center;
+  border-right: solid 1px #dde2e4;
+}
+@media screen and (min-width: 480px) {
+  /* line 205, ../sass/screen.scss */
+  header ul.right li a.search {
+    background-color: #56ccc8;
+  }
+}
+@media screen and (min-width: 640px) {
+  /* line 205, ../sass/screen.scss */
+  header ul.right li a.search {
+    background-color: white;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  /* line 205, ../sass/screen.scss */
+  header ul.right li a.search {
+    display: none;
+  }
+}
+/* line 228, ../sass/screen.scss */
+header ul.right li.social-icon-holder {
+  min-width: 120px;
+  display: inline;
+  border-right: solid 1px #dde2e4;
+}
+@media screen and (max-width: 550px) {
+  /* line 228, ../sass/screen.scss */
+  header ul.right li.social-icon-holder {
+    display: none;
+  }
+}
+/* line 238, ../sass/screen.scss */
+header ul.right li.social-icon-holder a {
+  float: left;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 40px;
+  background-position: center;
+}
+/* line 246, ../sass/screen.scss */
+header ul.right li.social-icon-holder a.facebook {
+  background-image: url(../../images/facebook_icon.png);
+}
+/* line 249, ../sass/screen.scss */
+header ul.right li.social-icon-holder a.twitter {
+  background-image: url(../../images/twitter_icon.png);
+}
+/* line 252, ../sass/screen.scss */
+header ul.right li.social-icon-holder a.google {
+  margin-top: 2px;
+  background-image: url(../../images/google_icon.png);
+}
+@media screen and (max-width: 640px) {
+  /* line 259, ../sass/screen.scss */
+  header ul.right li.login {
+    display: none;
+  }
+}
+/* line 263, ../sass/screen.scss */
+header ul.right li.login a {
+  background: url(../../images/login_icon.png) no-repeat center;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+}
+
+/* line 274, ../sass/screen.scss */
+#slider .wrapper {
+  width: 100%;
+  height: 320PX;
+  background: #787878;
+}

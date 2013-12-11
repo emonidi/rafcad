@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="styles/stylesheets/screen.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.js'></script>
+		
+		<script type="text/javascript" src='js/directives/sliderDirective.js'></script>
+		<script src="js/temp.js"></script>
+	</head>
+
+	</head>
+
+	<body ng-app='app'>
+		<div id='menu'>
+			<div class='menu-header'>
+				<a href = "">MENU</a>
+			</div>
+			<ul>
+				<li>
+					<a href='' class='home'>Home</a>
+				</li>
+
+				<li>
+					<a href='' class='store'>Store</a>
+				</li>
+
+				<li>
+					<a href='' class='blog'>Blog</a>
+				</li>
+
+				<li>
+					<a href='' class='community'>Community</a>
+				</li>
+
+				<li>
+					<a href='' class='contests'>Contests</a>
+				</li>
+
+				<li>
+					<a href='' class='about'>About</a>
+				</li>
+
+				<li>
+					<a href='' class='contact'>Contact</a>
+				</li>
+			</ul>
+
+		</div>
+		<div id='content'> 
+			<header>
+				<ul class='left'>
+					<li>
+						<a href='' class='menu-button'></a>
+					</li>
+					<li class='nav'>
+						<ul>
+							<li>
+								<a href=''>Home</a>
+							</li>
+							<li>
+								<a href=''>Store</a>
+							</li>
+							<li>
+								<a href=''>About</a>
+							</li>
+							<li>
+								<a href=''>Contact</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class='right'>
+
+							<li>
+								<a href='' class='search'></a>
+							</li>
+							<li class='social-icon-holder'>
+								
+									<a href='' class='facebook'></a>
+								
+								
+									<a href='' class='twitter'></a>
+								
+									<a href='' class='google'></a>
+							
+							</li>
+							<li class='login'>
+								<a href=''></a>
+							</li>
+				</ul>
+			</header>
+
+			<div ng-slider data-ng-touchEnabled="true"></div>
+		</div>
+	</body>
+</html>

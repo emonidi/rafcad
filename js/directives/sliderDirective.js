@@ -51,6 +51,19 @@ app.directive('ngSlider', ["$injector",function ($injector) {
 						scope.ul.width(scope.parentWidth()*scope.parent.find("li").length);
 				}
 
+				scope.isTouch = function(){
+					var useragent = navigator.userAgent;
+					console.log(useragent.search("iPhone"));
+					if(useragent.search("iPhone") > -1 || useragent.search("android") > -1){
+						return true;
+					}else{
+						return false;
+					}
+				}
+
+
+				
+
 				
 				scope.resizeLi = function(){
 					var li = $(elem).find('li');
@@ -136,8 +149,8 @@ app.directive('ngSlider', ["$injector",function ($injector) {
 				$(window).on("resize",function(){
 					scope.init();
 				});
-
-				if(attr.ngTouchenabled){
+				console.log(scope.isTouch())
+				if(attr.ngTouchenabled && scope.isTouch()){
 			    	$('head').append('<script type="text/javascript" src="./js/directives/touchSwipe.js"></script>');
 			    	scope.enableTouch();
 			    }
